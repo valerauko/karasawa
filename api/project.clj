@@ -7,4 +7,8 @@
   :main ^:skip-aot karasawa.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}
+             :dev {:dependencies [[org.clojure/test.check "0.10.0"]
+                                  [org.clojure/tools.namespace "0.3.1"]
+                                  [com.clojure-goes-fast/clj-async-profiler "0.4.1"]]
+                   :source-paths ["env/dev"]}})
