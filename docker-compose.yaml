@@ -1,0 +1,23 @@
+version: '3'
+services:
+  server:
+    image: clojure:openjdk-16-lein
+    container_name: server
+    working_dir: /usr/local/karasawa
+    command: lein repl :headless :host 0.0.0.0 :port 42001
+    ports:
+      - 3000:3000
+      - 42001:42001
+    volumes:
+      - ./server:/usr/local/karasawa
+      - package-volume:/root/.m2
+    depends_on:
+      - etcd
+
+  etcd:
+    image: quay.io/coreos/etcd:v3.3.25
+    container_name: etcd
+
+volumes:
+  etcd-volume:
+  package-volume:
