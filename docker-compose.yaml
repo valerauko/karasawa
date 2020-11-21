@@ -9,7 +9,7 @@ services:
       - 3000:3000
       - 42001:42001
     volumes:
-      - ./server:/usr/local/karasawa
+      - ./api:/usr/local/karasawa
       - package-volume:/root/.m2
     depends_on:
       - etcd
