@@ -17,6 +17,9 @@ services:
   etcd:
     image: quay.io/coreos/etcd:v3.3.25
     container_name: etcd
+    environment:
+      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
+      ETCD_ADVERTISE_CLIENT_URLS: "http://etcd:2379"
 
 volumes:
   etcd-volume:
